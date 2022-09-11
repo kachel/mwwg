@@ -27,8 +27,8 @@ let points = 75;
 const plusButtons = document.querySelectorAll("button.plus");
 const minusButtons = document.querySelectorAll("button.minus");
 const classDropdown = document.getElementById("class");
+const checkboxes = document.querySelectorAll("input[type='checkbox']");
 
-// todo
 // todo add function for updating total from checkboxes
 classDropdown.addEventListener("change", (e) => disableNonClass());
 
@@ -39,6 +39,10 @@ plusButtons.forEach((button) =>
 minusButtons.forEach((button) =>
   button.addEventListener("click", (e) => decrement(e))
 );
+
+checkboxes.forEach((checkbox) =>
+  checkbox.addEventListener("change", (e) => totalCalculator(e))
+)
 
 function increment(e) {
   let buttonClicked = e.target;
@@ -82,8 +86,6 @@ function decrement(e) {
     console.log("no")
   }
 
-
-
   statLevelToCost(e);
   totalCalculator(e);
 }
@@ -118,17 +120,15 @@ function totalCalculator(e) {
 
   let container = buttonClicked.parentElement.parentElement.parentElement;
 
-  console.log(container.className);
-
-  // todo local total
-
   let costAttInputs = Array.from(
     document.querySelectorAll("div.attributes input.cost")
   );
 
   let costCheckboxInputs = Array.from(
-    document.querySelectorAll("input[type=checkbox]:checked")
+    document.querySelectorAll("input[type='checkbox']:checked ~ input.cost")
   );
+
+  console.log(costCheckboxInputs)
 
   let costInputs = costAttInputs.concat(costCheckboxInputs);
 
