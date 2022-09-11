@@ -158,4 +158,13 @@ function totalCalculator(e) {
   points.value = 75 - total;
 }
 
-// todo add name="cost" to advantages and disadvantagess
+
+// for pdf generation
+function encumberance(strength) {
+  let strength = document.getElementById("strength");
+  return parseInt(strength) / 4
+}
+function baseMovement(dexterity) {
+  let dexterity = document.getElementById("dexterity");
+  return parseInt(strength) / 4
+}
