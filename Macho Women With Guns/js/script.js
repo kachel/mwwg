@@ -29,8 +29,7 @@ const minusButtons = document.querySelectorAll("button.minus");
 const classDropdown = document.getElementById("class");
 const checkboxes = document.querySelectorAll("input[type='checkbox']");
 
-// todo add function for updating total from checkboxes
-classDropdown.addEventListener("change", (e) => disableNonClass());
+let checkboxesArray = [...checkboxes];
 
 plusButtons.forEach((button) =>
   button.addEventListener("click", (e) => increment(e))
@@ -39,6 +38,8 @@ plusButtons.forEach((button) =>
 minusButtons.forEach((button) =>
   button.addEventListener("click", (e) => decrement(e))
 );
+
+classDropdown.addEventListener("change", (e) => disableNonClass(e));
 
 checkboxes.forEach((checkbox) =>
   checkbox.addEventListener("change", (e) => totalCalculator(e))
@@ -69,7 +70,6 @@ function increment(e) {
 function decrement(e) {
   let buttonClicked = e.target;
 
-  // this is brittle want to fix it latersssss
   let input = buttonClicked.parentElement.children.namedItem("level");
 
   let inputVal = input.value;
@@ -109,9 +109,31 @@ function statLevelToCost(e) {
   });
 }
 
-// disable skills, disadvantages, and advantages not associated if class not present
-// input.class include nun
-function disableNonClass() { }
+function disableNonClass(e) {
+  let dropdownVal = e.target.value.toLowerCase().slice(1);
+
+  let thingy = classValueConverter(dropdownVal);
+
+  checkboxesArray.map(
+    checkbox => {
+      if (checkbox.className.includes(thingy)) {
+        checkbox.disabled = false;
+      } else {
+        checkbox.disabled = true;
+      }
+    }
+  )
+}
+
+function classValueConverter(dropdownVal) {
+  if (dropdownVal.includes("macho")) {
+    return "macho";
+  } else if (dropdownVal.includes("nun")) {
+    return "nun";
+  } else if (dropdownVal.includes("bimbo")) {
+    return "bimbo";
+  }
+}
 
 // todo local total
 function totalCalculator(e) {
@@ -127,8 +149,6 @@ function totalCalculator(e) {
   let costCheckboxInputs = Array.from(
     document.querySelectorAll("input[type='checkbox']:checked ~ input.cost")
   );
-
-  console.log(costCheckboxInputs)
 
   let costInputs = costAttInputs.concat(costCheckboxInputs);
 

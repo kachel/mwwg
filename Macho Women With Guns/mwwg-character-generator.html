@@ -1,1126 +1,796 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Macho Women With Guns</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
 
-  <body>
-    <div>
-      <h1>Macho Women With Guns: Character Generator</h1>
-    </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Macho Women With Guns</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-    <div class="points">
-      <label for="points left">Points left:</label>
-      <input type="number" value="" id="points" />
-    </div>
+<body>
+  <div>
+    <h1>Macho Women With Guns: Character Generator</h1>
+  </div>
 
-    <br />
+  <div class="points">
+    <label for="points left">Points left:</label>
+    <input type="number" value="" id="points" />
+  </div>
 
-    <div class="class-selector">
-      <label for="class">Class:</label>
-      <select id="class">
-        <option selected>-- Choose Class --</option>
-        <option>♀ Macho Woman</option>
-        <option>✞ Renegade Nun</option>
-        <option>♆ Batwing Bimbo</option>
+  <br />
+
+  <div class="class-selector">
+    <label for="class">Class:</label>
+    <select id="class">
+      <option selected>-- Choose Class --</option>
+      <option>♀ Macho Woman</option>
+      <option>✞ Renegade Nun</option>
+      <option>♆ Batwing Bimbo</option>
+    </select>
+  </div>
+
+  <br />
+
+  <div class="attributes-info">
+    <h2>Attributes</h2>
+
+    <p>
+      The five attributes are: <b>Strength</b>, <b>Dexterity</b>,
+      <b>Macho</b>, <b>Looks</b>, and <b>Health</b>. They range from 8
+      ("Subnormal") to 19+ ("Goddess-like"), with an average of 10. The cost
+      for each attribute level is as follows:
+    </p>
+
+    <table border="1" cellpadding="5" cellspacing="0">
+      <tr>
+        <th align="left">Level</th>
+        <td align="center">8</td>
+        <td align="center">9</td>
+        <td align="center">10</td>
+        <td align="center">11</td>
+        <td align="center">12</td>
+        <td align="center">13</td>
+        <td align="center">14</td>
+        <td align="center">15</td>
+        <td align="center">16</td>
+        <td align="center">17</td>
+        <td align="center">18</td>
+        <td align="center">19</td>
+        <td align="center">20</td>
+      </tr>
+      <tr>
+        <th align="left">Cost</th>
+        <td align="center">-5</td>
+        <td align="center">-2</td>
+        <td align="center">+0</td>
+        <td align="center">+2</td>
+        <td align="center">+5</td>
+        <td align="center">+10</td>
+        <td align="center">+15</td>
+        <td align="center">+20</td>
+        <td align="center">+30</td>
+        <td align="center">+40</td>
+        <td align="center">+50</td>
+        <td align="center">+60</td>
+        <td align="center">+70</td>
+      </tr>
+    </table>
+  </div>
+
+  <br />
+
+  <div class="attributes">
+    <fieldset>
+      <legend>Choose your attributes</legend>
+      <div class="attribute">
+        <label for="strength">Strength:</label>
+        <button onclick="" class="minus">-</button>
+        <input name="level" type="number" min="8" max="19" value="10" readonly="" class="level" />
+        <button onclick="" class="plus">+</button>
+        <input type="number" value="0" disabled="true" class="cost" name="cost" />
+      </div>
+      <div class="attribute">
+        <label for="dexterity">Dexterity:</label>
+        <button onclick="" class="minus">-</button>
+        <input name="level" type="number" min="8" max="19" value="10" readonly="" class="level" />
+        <button onclick="" class="plus">+</button>
+        <input type="number" value="0" disabled="true" class="cost" name="cost" />
+      </div>
+      <div class="attribute">
+        <label for="looks">Looks:</label>
+        <button onclick="" class="minus">-</button>
+        <input name="level" type="number" min="8" max="19" value="10" readonly="" class="level" />
+        <button onclick="" class="plus">+</button>
+        <input type="number" value="0" disabled="true" class="cost" name="cost" />
+      </div>
+      <div class="attribute">
+        <label for="macho">Macho:</label>
+        <button onclick="" class="minus">-</button>
+        <input name="level" type="number" min="8" max="19" value="10" readonly="" class="level" />
+        <button onclick="" class="plus">+</button>
+        <input type="number" value="0" disabled="true" class="cost" name="cost" />
+      </div>
+      <div class="attribute">
+        <label for="Health">Health:</label>
+        <button onclick="" class="minus">-</button>
+        <input name="level" type="number" min="8" max="19" value="10" readonly="" class="level" />
+        <button onclick="" class="plus">+</button>
+        <input type="number" value="0" disabled="true" class="cost" name="cost" />
+      </div>
+
+      <div>
+        <label for="total">Total:</label>
+        <input type="number" class="total" />
+      </div>
+    </fieldset>
+  </div>
+
+  <div class="skills-info">
+    <h2>Skills</h2>
+    <p>
+      An unskilled character may only attempt an action using that skill with
+      a -3 penalty. Buying a skill at +0 eliminates this penalty.
+    </p>
+
+    <table border="1" cellpadding="5" cellspacing="0">
+      <tr>
+        <th align="left">Level</th>
+        <td align="center">+0</td>
+        <td align="center">+1</td>
+        <td align="center">+2</td>
+        <td align="center">+3</td>
+        <td align="center">+4</td>
+        <td align="center">+5</td>
+      </tr>
+      <tr>
+        <th align="left">Cost</th>
+        <td align="center">+3</td>
+        <td align="center">+5</td>
+        <td align="center">+10</td>
+        <td align="center">+15</td>
+        <td align="center">+20</td>
+        <td align="center">+30</td>
+      </tr>
+    </table>
+  </div>
+
+  <br />
+
+  <div class="skills">
+    <fieldset>
+      <legend>Choose your skills</legend>
+
+      <div class="skill">
+        <input type="checkbox" class="macho nun bimbo" />
+        <label for="beat-things-with-whip">
+          ♀ ✞ ♆ Beat Things With Whip (Dex)
+        </label>
+        <button onclick="" class="minus">-</button>
+        <input type="number" min="0" max="5" value="0" class="macho nun bimbo level" name="level" />
+        <button onclick="" class="plus">+</button>
+        <input type="number" value="0" disabled="true" class="cost" name="cost" />
+      </div>
+
+      <div class="skill">
+        <input type="checkbox" />
+        <label for=""> ♀ ✞ ♆ Blow Things Up (Macho) </label>
+        <button onclick="" class="minus">-</button>
+        <input type="number" min="0" max="5" value="0" class="macho nun bimbo level" />
+        <button onclick="" class="plus">+</button>
+        <input type="number" value="0" disabled="true" class="cost" />
+      </div>
+
+      <div class="skill">
+        <input type="checkbox" />
+        <label for=""> ♀ ♆ Cavort About (Dex) </label>
+        <button onclick="" class="minus">-</button>
+        <input type="number" min="0" max="5" value="0" class="macho bimbo level" />
+        <button onclick="" class="plus">+</button>
+        <input type="number" value="0" disabled="true" class="cost" />
+      </div>
+
+      <div class="skill">
+        <input type="checkbox" />
+        <label for=""> ✞ Combat Genuflection (Dex) </label>
+        <button onclick="" class="minus">-</button>
+        <input type="number" min="0" max="5" value="0" class="nun level" />
+        <button onclick="" class="plus">+</button>
+        <input type="number" value="0" disabled="true" class="cost" />
+      </div>
+
+      <div class="skill">
+        <input type="checkbox" />
+        <label for=""> ♆ Demonic Giggle (Looks) </label>
+        <button onclick="" class="minus">-</button>
+        <input type="number" min="0" max="5" value="0" class="bimbo level" />
+        <button onclick="" class="plus">+</button>
+        <input type="number" value="0" disabled="true" class="cost" />
+      </div>
+
+      <div class="skill">
+        <input type="checkbox" />
+        <label for=""> ♀ ♆ Disgust Onlookers (Looks) </label>
+        <button onclick="" class="minus">-</button>
+        <input type="number" min="0" max="5" value="0" class="macho bimbo level" />
+        <button onclick="" class="plus">+</button>
+        <input type="number" value="0" disabled="true" class="cost" />
+      </div>
+
+      <div class="skill">
+        <input type="checkbox" />
+        <label for=""> ♆ Distort Reality (Macho) </label>
+        <button onclick="" class="minus">-</button>
+        <input type="number" min="0" max="5" value="0" class="bimbo level" />
+        <button onclick="" class="plus">+</button>
+        <input type="number" value="0" disabled="true" class="cost" />
+      </div>
+
+      <div class="skill">
+        <input type="checkbox" />
+        <label for=""> ♀ ✞ Do Technical Stuff (Macho) </label>
+        <button onclick="" class="minus">-</button>
+        <input type="number" min="0" max="5" value="0" class="macho nun level" />
+        <button onclick="" class="plus">+</button>
+        <input type="number" value="0" disabled="true" class="cost" />
+      </div>
+
+      <div class="skill">
+        <input type="checkbox" />
+        <label for=""> ♆ Dodge Responsibility (Dex) </label>
+        <button onclick="" class="minus">-</button>
+        <input type="number" min="0" max="5" value="0" class="bimbo level" />
+        <button onclick="" class="plus">+</button>
+        <input type="number" value="0" disabled="true" class="cost" />
+      </div>
+
+      <div class="skill">
+        <input type="checkbox" />
+        <label for=""> ✞ Drive things (Dex) </label>
+        <button onclick="" class="minus">-</button>
+        <input type="number" min="0" max="5" value="0" class="nun level" />
+        <button onclick="" class="plus">+</button>
+        <input type="number" value="0" disabled="true" class="cost" />
+      </div>
+
+      <div class="skill">
+        <input type="checkbox" />
+        <label for=""> ♀ ✞ ♆ Fly Things (Dex) </label>
+        <button onclick="" class="minus">-</button>
+        <input type="number" min="0" max="5" value="0" class="macho nun bimbo level" />
+        <button onclick="" class="plus">+</button>
+        <input type="number" value="0" disabled="true" class="cost" />
+      </div>
+
+      <div class="skill">
+        <input type="checkbox" />
+        <label for=""> ✞ ♆ Gambling (Macho) </label>
+        <button onclick="" class="minus">-</button>
+        <input type="number" min="0" max="5" value="0" class="macho nun bimbo level" />
+        <button onclick="" class="plus">+</button>
+        <input type="number" value="0" disabled="true" class="cost" />
+      </div>
+
+      <div class="skill">
+        <input type="checkbox" />
+        <label for=""> ♀ ✞ ♆ Grab Stuff (Dex) </label>
+        <button onclick="" class="minus">-</button>
+        <input type="number" min="0" max="5" value="0" class="macho nun bimbo level" />
+        <button onclick="" class="plus">+</button>
+        <input type="number" value="0" disabled="true" class="cost" />
+      </div>
+
+      <div class="skill">
+        <input type="checkbox" />
+        <label for=""> ♀ ✞ ♆ Hit Things (Dex) </label>
+        <button onclick="" class="minus">-</button>
+        <input type="number" min="0" max="5" value="0" class="macho nun bimbo level" />
+        <button onclick="" class="plus">+</button>
+        <input type="number" value="0" disabled="true" class="cost" />
+      </div>
+
+      <div class="skill">
+        <input type="checkbox" />
+        <label for=""> ♀ ✞ ♆ Hit Things With Other Things (Dex) </label>
+        <button onclick="" class="minus">-</button>
+        <input type="number" min="0" max="5" value="0" class="macho nun bimbo level" />
+        <button onclick="" class="plus">+</button>
+        <input type="number" value="0" disabled="true" class="cost" />
+      </div>
+
+      <div class="skill">
+        <input type="checkbox" />
+        <label for=""> ♀ ✞ ♆ Interrogate (Macho) </label>
+        <button onclick="" class="minus">-</button>
+        <input type="number" min="0" max="5" value="0" class="macho nun bimbo level" />
+        <button onclick="" class="plus">+</button>
+        <input type="number" value="0" disabled="true" class="cost" />
+      </div>
+
+      <div class="skill">
+        <input type="checkbox" />
+        <label for=""> ♀ ✞ ♆ Patch things up (Dex) </label>
+        <button onclick="" class="minus">-</button>
+        <input type="number" min="0" max="5" value="0" class="macho nun bimbo level" />
+        <button onclick="" class="plus">+</button>
+        <input type="number" value="0" disabled="true" class="cost" />
+      </div>
+
+      <div class="skill">
+        <input type="checkbox" />
+        <label for="">
+          ♀ ✞ ♆ Perform anatomically impossible feat (Dex)
+        </label>
+        <button onclick="" class="minus">-</button>
+        <input type="number" min="0" max="5" value="0" class="macho nun bimbo level" />
+        <button onclick="" class="plus">+</button>
+        <input type="number" value="0" disabled="true" class="cost" />
+      </div>
+
+      <div class="skill">
+        <input type="checkbox" />
+        <label for=""> ♀ ♆ Pretend and Lie (Macho) </label>
+        <button onclick="" class="minus">-</button>
+        <input type="number" min="0" max="5" value="0" class="macho bimbo level" />
+        <button onclick="" class="plus">+</button>
+        <input type="number" value="0" disabled="true" class="cost" />
+      </div>
+
+      <div class="skill">
+        <input type="checkbox" />
+        <label for=""> ✞ Pray like Hell (Macho) </label>
+        <button onclick="" class="minus">-</button>
+        <input type="number" min="0" max="5" value="0" class="nun level" />
+        <button onclick="" class="plus">+</button>
+        <input type="number" value="0" disabled="true" class="cost" />
+      </div>
+
+      <div class="skill">
+        <input type="checkbox" />
+        <label for=""> ✞ Proselytize (Macho) </label>
+        <button onclick="" class="minus">-</button>
+        <input type="number" min="0" max="5" value="0" class="nun level" />
+        <button onclick="" class="plus">+</button>
+        <input type="number" value="0" disabled="true" class="cost" />
+      </div>
+
+      <div class="skill">
+        <input type="checkbox" />
+        <label for=""> ♀ ✞ ♆ Run in high heels (Dex) </label>
+        <button onclick="" class="minus">-</button>
+        <input type="number" min="0" max="5" value="0" class="macho nun bimbo level" />
+        <button onclick="" class="plus">+</button>
+        <input type="number" value="0" disabled="true" class="cost" />
+      </div>
+
+      <div class="skill">
+        <input type="checkbox" />
+        <label for=""> ♀ ✞ ♆ Seduce creature (Looks) </label>
+        <button onclick="" class="minus">-</button>
+        <input type="number" min="0" max="5" value="0" class="macho nun bimbo level" />
+        <button onclick="" class="plus">+</button>
+        <input type="number" value="0" disabled="true" class="cost" />
+      </div>
+
+      <div class="skill">
+        <input type="checkbox" />
+        <label for=""> ♀ ✞ ♆ Shoot big guns (Dex) </label>
+        <button onclick="" class="minus">-</button>
+        <input type="number" min="0" max="5" value="0" class="macho nun bimbo level" />
+        <button onclick="" class="plus">+</button>
+        <input type="number" value="0" disabled="true" class="cost" />
+      </div>
+
+      <div class="skill">
+        <input type="checkbox" />
+        <label for=""> ♀ ✞ ♆ Shoot little guns (Dex) </label>
+        <button onclick="" class="minus">-</button>
+        <input type="number" min="0" max="5" value="0" class="macho nun bimbo level" />
+        <button onclick="" class="plus">+</button>
+        <input type="number" value="0" disabled="true" class="cost" />
+      </div>
+
+      <div class="skill">
+        <input type="checkbox" />
+        <label for=""> ♀ ✞ ♆ Sneak around (Dex) </label>
+        <button onclick="" class="minus">-</button>
+        <input type="number" min="0" max="5" value="0" class="macho nun bimbo level" />
+        <button onclick="" class="plus">+</button>
+        <input type="number" value="0" disabled="true" class="cost" />
+      </div>
+
+      <div class="skill">
+        <input type="checkbox" />
+        <label for=""> ♀ ✞ ♆ Spot Obvious (Macho) </label>
+        <button onclick="" class="minus">-</button>
+        <input type="number" min="0" max="5" value="0" class="macho nun bimbo level" />
+        <button onclick="" class="plus">+</button>
+        <input type="number" value="0" disabled="true" class="cost" />
+      </div>
+
+      <div class="skill">
+        <input type="checkbox" />
+        <label for=""> ♀ ♆ Swearing (Macho) </label>
+        <button onclick="" class="minus">-</button>
+        <input type="number" min="0" max="5" value="0" class="macho bimbo level" />
+        <button onclick="" class="plus">+</button>
+        <input type="number" value="0" disabled="true" class="cost" />
+      </div>
+
+      <div class="skill">
+        <input type="checkbox" />
+        <label for=""> ♀ ✞ ♆ Swinging (Dex) </label>
+        <button onclick="" class="minus">-</button>
+        <input type="number" min="0" max="5" value="0" class="macho nun bimbo level" />
+        <button onclick="" class="plus">+</button>
+        <input type="number" value="0" disabled="true" class="cost" />
+      </div>
+
+      <div class="skill">
+        <input type="checkbox" />
+        <label for=""> ♀ ✞ ♆ Take it on the chin (Macho) </label>
+        <button onclick="" class="minus">-</button>
+        <input type="number" min="0" max="5" value="0" class="macho nun bimbo level" />
+        <button onclick="" class="plus">+</button>
+        <input type="number" value="0" disabled="true" class="cost" />
+      </div>
+
+      <div class="skill">
+        <input type="checkbox" />
+        <label for=""> ♀ ✞ ♆ Throw things (Dex) </label>
+        <button onclick="" class="minus">-</button>
+        <input type="number" min="0" max="5" value="0" class="macho nun bimbo level" />
+        <button onclick="" class="plus">+</button>
+        <input type="number" value="0" disabled="true" class="cost" />
+      </div>
+
+      <div class="skill">
+        <input type="checkbox" />
+        <label for=""> ♀ ✞ ♆ Tie things down (Dex) </label>
+        <button onclick="" class="minus">-</button>
+        <input type="number" min="0" max="5" value="0" class="macho nun bimbo level" />
+        <button onclick="" class="plus">+</button>
+        <input type="number" value="0" disabled="true" class="cost" />
+      </div>
+      <div>
+        <label for="total">Total:</label>
+        <input type="number" class="total" />
+      </div>
+    </fieldset>
+  </div>
+
+  <div class="advantages">
+    <fieldset>
+      <legend>Choose your advantages</legend>
+      <div>advantage</div>
+      <div>cost</div>
+      <div class="advantage">
+        <input type="checkbox" />
+        <label for="bat-wings">♆ Bat wings</label>
+        <input type="number" value="3" disabled="true" class="bimbo" />
+      </div>
+
+      <div class="advantage">
+        <input type="checkbox" />
+        <label for="cell-phone">✞ Cellular phone</label>
+        <input type="number" value="5" disabled="true" class="nun" />
+      </div>
+
+      <div class="advantage">
+        <input type="checkbox" />
+        <label for="crack-of-doom">♆ Crack of Doom</label>
+        <input type="number" value="5" disabled="true" class="bimbo" />
+      </div>
+      <div class="advantage">
+        <input type="checkbox" />
+        <label for="endless-ammo">♀ ✞ ♆ Endless ammo</label>
+        <input type="number" value="20" disabled="true" class="macho nun bimbo" />
+      </div>
+      <div>
+        <!-- how to add multiple values based on checkbox -->
+        <input type="checkbox" />
+        <input type="checkbox" />
+        <input type="checkbox" />
+        <input type="checkbox" />
+        <label for="endless-ammo">♆ Evil powers</label>
+        <input type="number" value="5" disabled="true" class="bimbo" />
+      </div>
+
+      <div class="advantage">
+        <input type="checkbox" />
+        <label for="endless-ammo">♀ ✞ ♆ Extra life</label>
+        <input type="number" value="10" disabled="true" class="macho nun bimbo" />
+      </div>
+      <div class="advantage">
+        <input type="checkbox" />
+        <label for="endless-ammo">♀ ✞ ♆ Fast draw</label>
+        <input type="number" value="10" disabled="true" class="macho nun bimbo" />
+      </div>
+      <div class="advantage">
+        <input type="checkbox" />
+        <label for="endless-ammo">♆ Flame touch</label>
+        1 pt per damage
+        <input type="number" value="1" disabled="true" class="bimbo" />
+      </div>
+
+      <div class="advantage">
+        <input type="checkbox" />
+        <label for="endless-ammo">♆ Fire retardant soul</label>
+        1 pt per armor vs fire
+        <input type="number" value="1" disabled="true" class="bimbo" />
+      </div>
+
+      <div class="advantage">
+        <input type="checkbox" />
+        <label for="endless-ammo"> ✞ God's Mighty Anvil </label>
+        <input type="number" value="10" disabled="true" class="nun" />
+      </div>
+
+      <div class="advantage">
+        <input type="checkbox" />
+        <label for="endless-ammo">♀ ✞ ♆ Handbag of holding</label>
+        <input type="number" value="10" disabled="true" class="macho nun bimbo" />
+      </div>
+      <div class="advantage">
+        <input type="checkbox" />
+        <label for="endless-ammo">♀ Hard drinking</label>
+        <input type="number" value="5" disabled="true" class="macho" />
+      </div>
+      <div class="advantage">
+        <input type="checkbox" />
+        <label for="endless-ammo">♆ Hotline</label>
+        <input type="number" value="5" disabled="true" class="bimbo" />
+      </div>
+      <div class="advantage">
+        <input type="checkbox" />
+        <label for="endless-ammo">♆ Infrared vision</label>
+        <input type="number" value="3" disabled="true" class="bimbo" />
+      </div>
+      <div class="advantage">
+        <input type="checkbox" />
+        <label for="endless-ammo">♀ ✞ ♆ Look good in armor</label>
+        5 pts per armor
+        <input type="number" value="5" disabled="true" class="macho nun bimbo" />
+      </div>
+      <div class="advantage">
+        <input type="checkbox" />
+        <input type="checkbox" />
+        <input type="checkbox" />
+        <input type="checkbox" />
+        <label for="endless-ammo">♀ ✞ ♆ Mutant ability </label>
+        10 pts per level
+        <input type="number" value="10" disabled="true" class="macho nun bimbo" />
+      </div>
+
+      <div class="advantage">
+        <input type="checkbox" />
+        <label for="endless-ammo">♆ Press-on claws</label>
+        <input type="number" value="3" disabled="true" class="bimbo" />
+      </div>
+      <div class="advantage">
+        <input type="checkbox" />
+        <label for="endless-ammo">✞ Pure of heart</label>
+        <input type="number" value="5" disabled="true" class="nun" />
+      </div>
+      <div class="advantage">
+        <input type="checkbox" />
+        <input type="checkbox" />
+        <input type="checkbox" />
+        <input type="checkbox" />
+        <label for="endless-ammo">✞ Sainthood</label>
+        <input type="number" value="5" disabled="true" class="nun" />
+      </div>
+      <div class="advantage">
+        <input type="checkbox" />
+        <label for="endless-ammo">♀ ✞ ♆ Scriptwriter</label>
+        <input type="number" value="5" disabled="true" class="macho nun bimbo" />
+      </div>
+      <div class="advantage">
+        <input type="checkbox" />
+        <label for="endless-ammo"> ♀ ✞ ♆ Teflon skin</label>
+        <input type="number" value="5" disabled="true" class="macho nun bimbo" />
+      </div>
+      <div class="advantage">
+        <input type="checkbox" />
+        <label for="endless-ammo">✞ ♆ Time Delay</label>
+        <input type="number" value="10" disabled="true" class="nun bimbo" />
+      </div>
+      <div class="advantage">
+        <input type="checkbox" />
+        <label for="endless-ammo">♆ Ultraviolent vision</label>
+        2 pts per +1 dmg, 2pts per range category
+        <input type="number" value="2" disabled="true" class="bimbo" />
+      </div>
+      <div class="advantage">
+        <input type="checkbox" />
+        <label for="endless-ammo">♆ Vampirism</label>
+        <input type="number" value="10" disabled="true" class="bimbo" />
+      </div>
+      <div class="advantage">
+        <input type="checkbox" />
+        <label for="endless-ammo">✞ Winged Whimple</label>
+        <input type="number" value="5" disabled="true" class="nun" />
+      </div>
+
+      <div>
+        <label for="total">Total:</label>
+        <input type="number" class="total" />
+      </div>
+    </fieldset>
+  </div>
+
+  <div class="disadvantages">
+    <fieldset>
+      <legend>Choose your disadvantages</legend>
+      <div>disadvantage</div>
+      <div>cost</div>
+      <div class="disadvantage">
+        <input type="checkbox" />
+        <label for="">♀ ✞ ♆ Alien babe</label>
+        <input type="number" value="5" disabled="true" class="macho nun bimbo" />
+      </div>
+
+      <div class="disadvantage">
+        <input type="checkbox" />
+        <label for="">✞ Backslider</label>
+        <input type="number" value="10" disabled="true" class="bimbo" />
+      </div>
+
+      <div class="disadvantage">
+        <input type="checkbox" />
+        <label for=""> ♆ Bad to the bone</label>
+        <input type="number" value="5" disabled="true" class="bimbo" />
+      </div>
+
+      <div class="disadvantage">
+        <input type="checkbox" />
+        <label for=""> ♀ Balancing priorities </label>
+        <input type="number" value="" disabled="true" class="macho" />
+      </div>
+
+      <div class="disadvantage">
+        <input type="checkbox" />
+        <label for=""> ♆ Bimbo </label>
+        <input type="number" value="10" disabled="true" class="bimbo" />
+      </div>
+
+      <div class="disadvantage">
+        <input type="checkbox" />
+        <label for=""> ♀ ✞ ♆ Chafing </label>
+        <input type="number" value="10" disabled="true" class="macho nun bimbo" />
+      </div>
+
+      <div class="disadvantage">
+        <input type="checkbox" />
+        <label for=""> ♀ ✞ ♆ Conservative Dresser </label>
+        <input type="number" value="20" disabled="true" class="macho nun bimbo" />
+      </div>
+
+      <div class="disadvantage">
+        <input type="checkbox" />
+        <label for=""> ♀ ✞ ♆ Depression </label>
+        <input type="number" value="10" disabled="true" class="macho nun bimbo" />
+      </div>
+
+      <div class="disadvantage">
+        <input type="checkbox" />
+        <label for=""> ♀ ✞ ♆ Fairness </label>
+        <input type="number" value="10" disabled="true" class="macho nun bimbo" />
+      </div>
+
+      <div class="disadvantage">
+        <input type="checkbox" />
+        <label for=""> ♀ ✞ ♆ Hardwired </label>
+        <input type="number" value="5" disabled="true" class="macho nun bimbo" />
+      </div>
+
+      <div class="disadvantage">
+        <input type="checkbox" />
+        <label for=""> ♀ ✞ ♆ Heroically dead </label>
+        <input type="number" value="5" disabled="true" class="macho nun bimbo" />
+      </div>
+
+      <div class="disadvantage">
+        <input type="checkbox" />
+        <label for=""> ♀ ✞ ♆ Mutant disadvatange </label>
+        <input type="number" value="10" disabled="true" class="macho nun bimbo" />
+      </div>
+
+      <div class="disadvantage">
+        <input type="checkbox" />
+        <label for=""> ♀ ✞ ♆ Non-intellect </label>
+        <input type="number" value="20" disabled="true" class="macho nun bimbo" />
+      </div>
+
+      <div class="disadvantage">
+        <input type="checkbox" />
+        <label for=""> ♀ ✞ ♆ Outlaw </label>
+        <input type="number" value="10" disabled="true" class="macho nun bimbo" />
+      </div>
+
+      <div class="disadvantage">
+        <input type="checkbox" />
+        <label for=""> ♀ ✞ ♆ Personal weakness </label>
+        <input type="number" value="10" disabled="true" class="macho nun bimbo" />
+      </div>
+
+      <div class="disadvantage">
+        <input type="checkbox" />
+        <label for=""> ♀ Sadistic </label>
+        <input type="number" value="5" disabled="true" class="macho" />
+      </div>
+
+      <div class="disadvantage">
+        <input type="checkbox" />
+        <label for=""> ♀ ✞ ♆ Secret love </label>
+        <input type="number" value="10" disabled="true" class="macho nun bimbo" />
+      </div>
+
+      <div class="disadvantage">
+        <input type="checkbox" />
+        <label for=""> ♆ Squeamish</label>
+        <input type="number" value="5" disabled="true" class="bimbo" />
+      </div>
+
+      <div class="disadvantage">
+        <input type="checkbox" />
+        <label for=""> ♀ ♆ Status-conscious </label>
+        <input type="number" value="5" disabled="true" class="macho bimbo" />
+      </div>
+
+      <div class="disadvantage">
+        <input type="checkbox" />
+        <label for=""> ♀ ✞ ♆ Topheavy </label>
+        <input type="number" value="5" disabled="true" class="macho nun bimbo" />
+      </div>
+
+      <div class="disadvantage">
+        <input type="checkbox" />
+        <label for=""> ♆ Vengeful </label>
+        <input type="number" value="5" disabled="true" class="bimbo" />
+      </div>
+
+      <div class="disadvantage">
+        <input type="checkbox" />
+        <label for="">✞ Vow of Silence</label>
+        <input type="number" value="10" disabled="true" class="nun" />
+      </div>
+
+      <div class="disadvantage">
+        <input type="checkbox" />
+        <label for=""> ✞ Vow of Violence </label>
+        <input type="number" value="10" disabled="true" class="nuns" />
+      </div>
+      <div class="disadvantage">
+        <label for="total">Total:</label>
+        <input type="number" class="total" />
+      </div>
+    </fieldset>
+  </div>
+
+  <div class="equipment-selector">
+    <fieldset>
+      <legend>Choose your equipment</legend>
+      <label for="class">Weapons:</label>
+      <select id="weapons">
+        <option selected>Gun</option>
+        <option>Chainsaw</option>
+        <option>Whips</option>
+        <option>Guns</option>
       </select>
-    </div>
 
-    <br />
+      <label for="class">Armor:</label>
+      <select id="weapons">
+        <option selected>Chaimail bikini</option>
+        <option>Clothes</option>
+        <option>Catsuit</option>
+        <option>Nothing</option>
+      </select>
+    </fieldset>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
 
-    <div class="attributes-info">
-      <h2>Attributes</h2>
-
-      <p>
-        The five attributes are: <b>Strength</b>, <b>Dexterity</b>,
-        <b>Macho</b>, <b>Looks</b>, and <b>Health</b>. They range from 8
-        ("Subnormal") to 19+ ("Goddess-like"), with an average of 10. The cost
-        for each attribute level is as follows:
-      </p>
-
-      <table border="1" cellpadding="5" cellspacing="0">
-        <tr>
-          <th align="left">Level</th>
-          <td align="center">8</td>
-          <td align="center">9</td>
-          <td align="center">10</td>
-          <td align="center">11</td>
-          <td align="center">12</td>
-          <td align="center">13</td>
-          <td align="center">14</td>
-          <td align="center">15</td>
-          <td align="center">16</td>
-          <td align="center">17</td>
-          <td align="center">18</td>
-          <td align="center">19</td>
-          <td align="center">20</td>
-        </tr>
-        <tr>
-          <th align="left">Cost</th>
-          <td align="center">-5</td>
-          <td align="center">-2</td>
-          <td align="center">+0</td>
-          <td align="center">+2</td>
-          <td align="center">+5</td>
-          <td align="center">+10</td>
-          <td align="center">+15</td>
-          <td align="center">+20</td>
-          <td align="center">+30</td>
-          <td align="center">+40</td>
-          <td align="center">+50</td>
-          <td align="center">+60</td>
-          <td align="center">+70</td>
-        </tr>
-      </table>
-    </div>
-
-    <br />
-
-    <div class="attributes">
-      <fieldset>
-        <legend>Choose your attributes</legend>
-        <div class="attribute">
-          <label for="strength">Strength:</label>
-          <button onclick="" class="minus">-</button>
-          <input
-            name="level"
-            type="number"
-            min="8"
-            max="19"
-            value="10"
-            readonly=""
-            class="level"
-          />
-          <button onclick="" class="plus">+</button>
-          <input
-            type="number"
-            value="0"
-            disabled="true"
-            class="cost"
-            name="cost"
-          />
-        </div>
-        <div class="attribute">
-          <label for="dexterity">Dexterity:</label>
-          <button onclick="" class="minus">-</button>
-          <input
-            name="level"
-            type="number"
-            min="8"
-            max="19"
-            value="10"
-            readonly=""
-            class="level"
-          />
-          <button onclick="" class="plus">+</button>
-          <input
-            type="number"
-            value="0"
-            disabled="true"
-            class="cost"
-            name="cost"
-          />
-        </div>
-        <div class="attribute">
-          <label for="looks">Looks:</label>
-          <button onclick="" class="minus">-</button>
-          <input
-            name="level"
-            type="number"
-            min="8"
-            max="19"
-            value="10"
-            readonly=""
-            class="level"
-          />
-          <button onclick="" class="plus">+</button>
-          <input
-            type="number"
-            value="0"
-            disabled="true"
-            class="cost"
-            name="cost"
-          />
-        </div>
-        <div class="attribute">
-          <label for="macho">Macho:</label>
-          <button onclick="" class="minus">-</button>
-          <input
-            name="level"
-            type="number"
-            min="8"
-            max="19"
-            value="10"
-            readonly=""
-            class="level"
-          />
-          <button onclick="" class="plus">+</button>
-          <input
-            type="number"
-            value="0"
-            disabled="true"
-            class="cost"
-            name="cost"
-          />
-        </div>
-        <div class="attribute">
-          <label for="Health">Health:</label>
-          <button onclick="" class="minus">-</button>
-          <input
-            name="level"
-            type="number"
-            min="8"
-            max="19"
-            value="10"
-            readonly=""
-            class="level"
-          />
-          <button onclick="" class="plus">+</button>
-          <input
-            type="number"
-            value="0"
-            disabled="true"
-            class="cost"
-            name="cost"
-          />
-        </div>
-
-        <div>
-          <label for="total">Total:</label>
-          <input type="number" class="total" />
-        </div>
-      </fieldset>
-    </div>
-
-    <div class="skills-info">
-      <h2>Skills</h2>
-      <p>
-        An unskilled character may only attempt an action using that skill with
-        a -3 penalty. Buying a skill at +0 eliminates this penalty.
-      </p>
-
-      <table border="1" cellpadding="5" cellspacing="0">
-        <tr>
-          <th align="left">Level</th>
-          <td align="center">+0</td>
-          <td align="center">+1</td>
-          <td align="center">+2</td>
-          <td align="center">+3</td>
-          <td align="center">+4</td>
-          <td align="center">+5</td>
-        </tr>
-        <tr>
-          <th align="left">Cost</th>
-          <td align="center">+3</td>
-          <td align="center">+5</td>
-          <td align="center">+10</td>
-          <td align="center">+15</td>
-          <td align="center">+20</td>
-          <td align="center">+30</td>
-        </tr>
-      </table>
-    </div>
-
-    <br />
-
-    <div class="skills">
-      <fieldset>
-        <legend>Choose your skills</legend>
-
-        <div class="skill">
-          <input type="checkbox" class="macho nun bimbo" />
-          <label for="beat-things-with-whip">
-            ♀ ✞ ♆ Beat Things With Whip (Dex)
-          </label>
-          <button onclick="" class="minus">-</button>
-          <input
-            type="number"
-            min="0"
-            max="5"
-            value="0"
-            class="macho nun bimbo level"
-            name="level"
-          />
-          <button onclick="" class="plus">+</button>
-          <input
-            type="number"
-            value="0"
-            disabled="true"
-            class="cost"
-            name="cost"
-          />
-        </div>
-
-        <div class="skill">
-          <input type="checkbox" />
-          <label for=""> ♀ ✞ ♆ Blow Things Up (Macho) </label>
-          <button onclick="" class="minus">-</button>
-          <input
-            type="number"
-            min="0"
-            max="5"
-            value="0"
-            class="macho nun bimbo level"
-          />
-          <button onclick="" class="plus">+</button>
-          <input type="number" value="0" disabled="true" class="cost" />
-        </div>
-
-        <div class="skill">
-          <input type="checkbox" />
-          <label for=""> ♀ ♆ Cavort About (Dex) </label>
-          <button onclick="" class="minus">-</button>
-          <input
-            type="number"
-            min="0"
-            max="5"
-            value="0"
-            class="macho bimbo level"
-          />
-          <button onclick="" class="plus">+</button>
-          <input type="number" value="0" disabled="true" class="cost" />
-        </div>
-
-        <div class="skill">
-          <input type="checkbox" />
-          <label for=""> ✞ Combat Genuflection (Dex) </label>
-          <button onclick="" class="minus">-</button>
-          <input type="number" min="0" max="5" value="0" class="nun level" />
-          <button onclick="" class="plus">+</button>
-          <input type="number" value="0" disabled="true" class="cost" />
-        </div>
-
-        <div class="skill">
-          <input type="checkbox" />
-          <label for=""> ♆ Demonic Giggle (Looks) </label>
-          <button onclick="" class="minus">-</button>
-          <input type="number" min="0" max="5" value="0" class="bimbo level" />
-          <button onclick="" class="plus">+</button>
-          <input type="number" value="0" disabled="true" class="cost" />
-        </div>
-
-        <div class="skill">
-          <input type="checkbox" />
-          <label for=""> ♀ ♆ Disgust Onlookers (Looks) </label>
-          <button onclick="" class="minus">-</button>
-          <input
-            type="number"
-            min="0"
-            max="5"
-            value="0"
-            class="macho bimbo level"
-          />
-          <button onclick="" class="plus">+</button>
-          <input type="number" value="0" disabled="true" class="cost" />
-        </div>
-
-        <div class="skill">
-          <input type="checkbox" />
-          <label for=""> ♆ Distort Reality (Macho) </label>
-          <button onclick="" class="minus">-</button>
-          <input type="number" min="0" max="5" value="0" class="bimbo level" />
-          <button onclick="" class="plus">+</button>
-          <input type="number" value="0" disabled="true" class="cost" />
-        </div>
-
-        <div class="skill">
-          <input type="checkbox" />
-          <label for=""> ♀ ✞ Do Technical Stuff (Macho) </label>
-          <button onclick="" class="minus">-</button>
-          <input
-            type="number"
-            min="0"
-            max="5"
-            value="0"
-            class="macho nun level"
-          />
-          <button onclick="" class="plus">+</button>
-          <input type="number" value="0" disabled="true" class="cost" />
-        </div>
-
-        <div class="skill">
-          <input type="checkbox" />
-          <label for=""> ♆ Dodge Responsibility (Dex) </label>
-          <button onclick="" class="minus">-</button>
-          <input type="number" min="0" max="5" value="0" class="bimbo level" />
-          <button onclick="" class="plus">+</button>
-          <input type="number" value="0" disabled="true" class="cost" />
-        </div>
-
-        <div class="skill">
-          <input type="checkbox" />
-          <label for=""> ✞ Drive things (Dex) </label>
-          <button onclick="" class="minus">-</button>
-          <input type="number" min="0" max="5" value="0" class="nun level" />
-          <button onclick="" class="plus">+</button>
-          <input type="number" value="0" disabled="true" class="cost" />
-        </div>
-
-        <div class="skill">
-          <input type="checkbox" />
-          <label for=""> ♀ ✞ ♆ Fly Things (Dex) </label>
-          <button onclick="" class="minus">-</button>
-          <input
-            type="number"
-            min="0"
-            max="5"
-            value="0"
-            class="macho nun bimbo level"
-          />
-          <button onclick="" class="plus">+</button>
-          <input type="number" value="0" disabled="true" class="cost" />
-        </div>
-
-        <div class="skill">
-          <input type="checkbox" />
-          <label for=""> ✞ ♆ Gambling (Macho) </label>
-          <button onclick="" class="minus">-</button>
-          <input
-            type="number"
-            min="0"
-            max="5"
-            value="0"
-            class="macho nun bimbo level"
-          />
-          <button onclick="" class="plus">+</button>
-          <input type="number" value="0" disabled="true" class="cost" />
-        </div>
-
-        <div class="skill">
-          <input type="checkbox" />
-          <label for=""> ♀ ✞ ♆ Grab Stuff (Dex) </label>
-          <button onclick="" class="minus">-</button>
-          <input
-            type="number"
-            min="0"
-            max="5"
-            value="0"
-            class="macho nun bimbo level"
-          />
-          <button onclick="" class="plus">+</button>
-          <input type="number" value="0" disabled="true" class="cost" />
-        </div>
-
-        <div class="skill">
-          <input type="checkbox" />
-          <label for=""> ♀ ✞ ♆ Hit Things (Dex) </label>
-          <button onclick="" class="minus">-</button>
-          <input
-            type="number"
-            min="0"
-            max="5"
-            value="0"
-            class="macho nun bimbo level"
-          />
-          <button onclick="" class="plus">+</button>
-          <input type="number" value="0" disabled="true" class="cost" />
-        </div>
-
-        <div class="skill">
-          <input type="checkbox" />
-          <label for=""> ♀ ✞ ♆ Hit Things With Other Things (Dex) </label>
-          <button onclick="" class="minus">-</button>
-          <input
-            type="number"
-            min="0"
-            max="5"
-            value="0"
-            class="macho nun bimbo level"
-          />
-          <button onclick="" class="plus">+</button>
-          <input type="number" value="0" disabled="true" class="cost" />
-        </div>
-
-        <div class="skill">
-          <input type="checkbox" />
-          <label for=""> ♀ ✞ ♆ Interrogate (Macho) </label>
-          <button onclick="" class="minus">-</button>
-          <input
-            type="number"
-            min="0"
-            max="5"
-            value="0"
-            class="macho nun bimbo level"
-          />
-          <button onclick="" class="plus">+</button>
-          <input type="number" value="0" disabled="true" class="cost" />
-        </div>
-
-        <div class="skill">
-          <input type="checkbox" />
-          <label for=""> ♀ ✞ ♆ Patch things up (Dex) </label>
-          <button onclick="" class="minus">-</button>
-          <input
-            type="number"
-            min="0"
-            max="5"
-            value="0"
-            class="macho nun bimbo level"
-          />
-          <button onclick="" class="plus">+</button>
-          <input type="number" value="0" disabled="true" class="cost" />
-        </div>
-
-        <div class="skill">
-          <input type="checkbox" />
-          <label for="">
-            ♀ ✞ ♆ Perform anatomically impossible feat (Dex)
-          </label>
-          <button onclick="" class="minus">-</button>
-          <input
-            type="number"
-            min="0"
-            max="5"
-            value="0"
-            class="macho nun bimbo level"
-          />
-          <button onclick="" class="plus">+</button>
-          <input type="number" value="0" disabled="true" class="cost" />
-        </div>
-
-        <div class="skill">
-          <input type="checkbox" />
-          <label for=""> ♀ ♆ Pretend and Lie (Macho) </label>
-          <button onclick="" class="minus">-</button>
-          <input
-            type="number"
-            min="0"
-            max="5"
-            value="0"
-            class="macho bimbo level"
-          />
-          <button onclick="" class="plus">+</button>
-          <input type="number" value="0" disabled="true" class="cost" />
-        </div>
-
-        <div class="skill">
-          <input type="checkbox" />
-          <label for=""> ✞ Pray like Hell (Macho) </label>
-          <button onclick="" class="minus">-</button>
-          <input type="number" min="0" max="5" value="0" class="nun level" />
-          <button onclick="" class="plus">+</button>
-          <input type="number" value="0" disabled="true" class="cost" />
-        </div>
-
-        <div class="skill">
-          <input type="checkbox" />
-          <label for=""> ✞ Proselytize (Macho) </label>
-          <button onclick="" class="minus">-</button>
-          <input type="number" min="0" max="5" value="0" class="nun level" />
-          <button onclick="" class="plus">+</button>
-          <input type="number" value="0" disabled="true" class="cost" />
-        </div>
-
-        <div class="skill">
-          <input type="checkbox" />
-          <label for=""> ♀ ✞ ♆ Run in high heels (Dex) </label>
-          <button onclick="" class="minus">-</button>
-          <input
-            type="number"
-            min="0"
-            max="5"
-            value="0"
-            class="macho nun bimbo level"
-          />
-          <button onclick="" class="plus">+</button>
-          <input type="number" value="0" disabled="true" class="cost" />
-        </div>
-
-        <div class="skill">
-          <input type="checkbox" />
-          <label for=""> ♀ ✞ ♆ Seduce creature (Looks) </label>
-          <button onclick="" class="minus">-</button>
-          <input
-            type="number"
-            min="0"
-            max="5"
-            value="0"
-            class="macho nun bimbo level"
-          />
-          <button onclick="" class="plus">+</button>
-          <input type="number" value="0" disabled="true" class="cost" />
-        </div>
-
-        <div class="skill">
-          <input type="checkbox" />
-          <label for=""> ♀ ✞ ♆ Shoot big guns (Dex) </label>
-          <button onclick="" class="minus">-</button>
-          <input
-            type="number"
-            min="0"
-            max="5"
-            value="0"
-            class="macho nun bimbo level"
-          />
-          <button onclick="" class="plus">+</button>
-          <input type="number" value="0" disabled="true" class="cost" />
-        </div>
-
-        <div class="skill">
-          <input type="checkbox" />
-          <label for=""> ♀ ✞ ♆ Shoot little guns (Dex) </label>
-          <button onclick="" class="minus">-</button>
-          <input
-            type="number"
-            min="0"
-            max="5"
-            value="0"
-            class="macho nun bimbo level"
-          />
-          <button onclick="" class="plus">+</button>
-          <input type="number" value="0" disabled="true" class="cost" />
-        </div>
-
-        <div class="skill">
-          <input type="checkbox" />
-          <label for=""> ♀ ✞ ♆ Sneak around (Dex) </label>
-          <button onclick="" class="minus">-</button>
-          <input
-            type="number"
-            min="0"
-            max="5"
-            value="0"
-            class="macho nun bimbo level"
-          />
-          <button onclick="" class="plus">+</button>
-          <input type="number" value="0" disabled="true" class="cost" />
-        </div>
-
-        <div class="skill">
-          <input type="checkbox" />
-          <label for=""> ♀ ✞ ♆ Spot Obvious (Macho) </label>
-          <button onclick="" class="minus">-</button>
-          <input
-            type="number"
-            min="0"
-            max="5"
-            value="0"
-            class="macho nun bimbo level"
-          />
-          <button onclick="" class="plus">+</button>
-          <input type="number" value="0" disabled="true" class="cost" />
-        </div>
-
-        <div class="skill">
-          <input type="checkbox" />
-          <label for=""> ♀ ♆ Swearing (Macho) </label>
-          <button onclick="" class="minus">-</button>
-          <input
-            type="number"
-            min="0"
-            max="5"
-            value="0"
-            class="macho bimbo level"
-          />
-          <button onclick="" class="plus">+</button>
-          <input type="number" value="0" disabled="true" class="cost" />
-        </div>
-
-        <div class="skill">
-          <input type="checkbox" />
-          <label for=""> ♀ ✞ ♆ Swinging (Dex) </label>
-          <button onclick="" class="minus">-</button>
-          <input
-            type="number"
-            min="0"
-            max="5"
-            value="0"
-            class="macho nun bimbo level"
-          />
-          <button onclick="" class="plus">+</button>
-          <input type="number" value="0" disabled="true" class="cost" />
-        </div>
-
-        <div class="skill">
-          <input type="checkbox" />
-          <label for=""> ♀ ✞ ♆ Take it on the chin (Macho) </label>
-          <button onclick="" class="minus">-</button>
-          <input
-            type="number"
-            min="0"
-            max="5"
-            value="0"
-            class="macho nun bimbo level"
-          />
-          <button onclick="" class="plus">+</button>
-          <input type="number" value="0" disabled="true" class="cost" />
-        </div>
-
-        <div class="skill">
-          <input type="checkbox" />
-          <label for=""> ♀ ✞ ♆ Throw things (Dex) </label>
-          <button onclick="" class="minus">-</button>
-          <input
-            type="number"
-            min="0"
-            max="5"
-            value="0"
-            class="macho nun bimbo level"
-          />
-          <button onclick="" class="plus">+</button>
-          <input type="number" value="0" disabled="true" class="cost" />
-        </div>
-
-        <div class="skill">
-          <input type="checkbox" />
-          <label for=""> ♀ ✞ ♆ Tie things down (Dex) </label>
-          <button onclick="" class="minus">-</button>
-          <input
-            type="number"
-            min="0"
-            max="5"
-            value="0"
-            class="macho nun bimbo level"
-          />
-          <button onclick="" class="plus">+</button>
-          <input type="number" value="0" disabled="true" class="cost" />
-        </div>
-        <div>
-          <label for="total">Total:</label>
-          <input type="number" class="total" />
-        </div>
-      </fieldset>
-    </div>
-
-    <div class="advantages">
-      <fieldset>
-        <legend>Choose your advantages</legend>
-        <div>advantage</div>
-        <div>cost</div>
-        <div class="advantage">
-          <input type="checkbox" />
-          <label for="bat-wings">♆ Bat wings</label>
-          <input type="number" value="3" disabled="true" class="bimbo" />
-        </div>
-
-        <div class="advantage">
-          <input type="checkbox" />
-          <label for="cell-phone">✞ Cellular phone</label>
-          <input type="number" value="5" disabled="true" class="nun" />
-        </div>
-
-        <div class="advantage">
-          <input type="checkbox" />
-          <label for="crack-of-doom">♆ Crack of Doom</label>
-          <input type="number" value="5" disabled="true" class="bimbo" />
-        </div>
-        <div class="advantage">
-          <input type="checkbox" />
-          <label for="endless-ammo">♀ ✞ ♆ Endless ammo</label>
-          <input
-            type="number"
-            value="20"
-            disabled="true"
-            class="macho nun bimbo"
-          />
-        </div>
-        <div>
-          <!-- how to add multiple values based on checkbox -->
-          <input type="checkbox" />
-          <input type="checkbox" />
-          <input type="checkbox" />
-          <input type="checkbox" />
-          <label for="endless-ammo">♆ Evil powers</label>
-          <input type="number" value="5" disabled="true" class="bimbo" />
-        </div>
-
-        <div class="advantage">
-          <input type="checkbox" />
-          <label for="endless-ammo">♀ ✞ ♆ Extra life</label>
-          <input
-            type="number"
-            value="10"
-            disabled="true"
-            class="macho nun bimbo"
-          />
-        </div>
-        <div class="advantage">
-          <input type="checkbox" />
-          <label for="endless-ammo">♀ ✞ ♆ Fast draw</label>
-          <input
-            type="number"
-            value="10"
-            disabled="true"
-            class="macho nun bimbo"
-          />
-        </div>
-        <div class="advantage">
-          <input type="checkbox" />
-          <label for="endless-ammo">♆ Flame touch</label>
-          1 pt per damage
-          <input type="number" value="1" disabled="true" class="bimbo" />
-        </div>
-
-        <div class="advantage">
-          <input type="checkbox" />
-          <label for="endless-ammo">♆ Fire retardant soul</label>
-          1 pt per armor vs fire
-          <input type="number" value="1" disabled="true" class="bimbo" />
-        </div>
-
-        <div class="advantage">
-          <input type="checkbox" />
-          <label for="endless-ammo"> ✞ God's Mighty Anvil </label>
-          <input type="number" value="10" disabled="true" class="nun" />
-        </div>
-
-        <div class="advantage">
-          <input type="checkbox" />
-          <label for="endless-ammo">♀ ✞ ♆ Handbag of holding</label>
-          <input
-            type="number"
-            value="10"
-            disabled="true"
-            class="macho nun bimbo"
-          />
-        </div>
-        <div class="advantage">
-          <input type="checkbox" />
-          <label for="endless-ammo">♀ Hard drinking</label>
-          <input type="number" value="5" disabled="true" class="macho" />
-        </div>
-        <div class="advantage">
-          <input type="checkbox" />
-          <label for="endless-ammo">♆ Hotline</label>
-          <input type="number" value="5" disabled="true" class="bimbo" />
-        </div>
-        <div class="advantage">
-          <input type="checkbox" />
-          <label for="endless-ammo">♆ Infrared vision</label>
-          <input type="number" value="3" disabled="true" class="bimbo" />
-        </div>
-        <div class="advantage">
-          <input type="checkbox" />
-          <label for="endless-ammo">♀ ✞ ♆ Look good in armor</label>
-          5 pts per armor
-          <input
-            type="number"
-            value="5"
-            disabled="true"
-            class="macho nun bimbo"
-          />
-        </div>
-        <div class="advantage">
-          <input type="checkbox" />
-          <input type="checkbox" />
-          <input type="checkbox" />
-          <input type="checkbox" />
-          <label for="endless-ammo">♀ ✞ ♆ Mutant ability </label>
-          10 pts per level
-          <input
-            type="number"
-            value="10"
-            disabled="true"
-            class="macho nun bimbo"
-          />
-        </div>
-
-        <div class="advantage">
-          <input type="checkbox" />
-          <label for="endless-ammo">♆ Press-on claws</label>
-          <input type="number" value="3" disabled="true" class="bimbo" />
-        </div>
-        <div class="advantage">
-          <input type="checkbox" />
-          <label for="endless-ammo">✞ Pure of heart</label>
-          <input type="number" value="5" disabled="true" class="nun" />
-        </div>
-        <div class="advantage">
-          <input type="checkbox" />
-          <input type="checkbox" />
-          <input type="checkbox" />
-          <input type="checkbox" />
-          <label for="endless-ammo">✞ Sainthood</label>
-          <input type="number" value="5" disabled="true" class="nun" />
-        </div>
-        <div class="advantage">
-          <input type="checkbox" />
-          <label for="endless-ammo">♀ ✞ ♆ Scriptwriter</label>
-          <input
-            type="number"
-            value="5"
-            disabled="true"
-            class="macho nun bimbo"
-          />
-        </div>
-        <div class="advantage">
-          <input type="checkbox" />
-          <label for="endless-ammo"> ♀ ✞ ♆ Teflon skin</label>
-          <input
-            type="number"
-            value="5"
-            disabled="true"
-            class="macho nun bimbo"
-          />
-        </div>
-        <div class="advantage">
-          <input type="checkbox" />
-          <label for="endless-ammo">✞ ♆ Time Delay</label>
-          <input type="number" value="10" disabled="true" class="nun bimbo" />
-        </div>
-        <div class="advantage">
-          <input type="checkbox" />
-          <label for="endless-ammo">♆ Ultraviolent vision</label>
-          2 pts per +1 dmg, 2pts per range category
-          <input type="number" value="2" disabled="true" class="bimbo" />
-        </div>
-        <div class="advantage">
-          <input type="checkbox" />
-          <label for="endless-ammo">♆ Vampirism</label>
-          <input type="number" value="10" disabled="true" class="bimbo" />
-        </div>
-        <div class="advantage">
-          <input type="checkbox" />
-          <label for="endless-ammo">✞ Winged Whimple</label>
-          <input type="number" value="5" disabled="true" class="nun" />
-        </div>
-
-        <div>
-          <label for="total">Total:</label>
-          <input type="number" class="total" />
-        </div>
-      </fieldset>
-    </div>
-
-    <div class="disadvantages">
-      <fieldset>
-        <legend>Choose your disadvantages</legend>
-        <div>disadvantage</div>
-        <div>cost</div>
-        <div class="disadvantage">
-          <input type="checkbox" />
-          <label for="">♀ ✞ ♆ Alien babe</label>
-          <input
-            type="number"
-            value="5"
-            disabled="true"
-            class="macho nun bimbo"
-          />
-        </div>
-
-        <div class="disadvantage">
-          <input type="checkbox" />
-          <label for="">✞ Backslider</label>
-          <input type="number" value="10" disabled="true" class="bimbo" />
-        </div>
-
-        <div class="disadvantage">
-          <input type="checkbox" />
-          <label for=""> ♆ Bad to the bone</label>
-          <input type="number" value="5" disabled="true" class="bimbo" />
-        </div>
-
-        <div class="disadvantage">
-          <input type="checkbox" />
-          <label for=""> ♀ Balancing priorities </label>
-          <input type="number" value="" disabled="true" class="macho" />
-        </div>
-
-        <div class="disadvantage">
-          <input type="checkbox" />
-          <label for=""> ♆ Bimbo </label>
-          <input type="number" value="10" disabled="true" class="bimbo" />
-        </div>
-
-        <div class="disadvantage">
-          <input type="checkbox" />
-          <label for=""> ♀ ✞ ♆ Chafing </label>
-          <input
-            type="number"
-            value="10"
-            disabled="true"
-            class="macho nun bimbo"
-          />
-        </div>
-
-        <div class="disadvantage">
-          <input type="checkbox" />
-          <label for=""> ♀ ✞ ♆ Conservative Dresser </label>
-          <input
-            type="number"
-            value="20"
-            disabled="true"
-            class="macho nun bimbo"
-          />
-        </div>
-
-        <div class="disadvantage">
-          <input type="checkbox" />
-          <label for=""> ♀ ✞ ♆ Depression </label>
-          <input
-            type="number"
-            value="10"
-            disabled="true"
-            class="macho nun bimbo"
-          />
-        </div>
-
-        <div class="disadvantage">
-          <input type="checkbox" />
-          <label for=""> ♀ ✞ ♆ Fairness </label>
-          <input
-            type="number"
-            value="10"
-            disabled="true"
-            class="macho nun bimbo"
-          />
-        </div>
-
-        <div class="disadvantage">
-          <input type="checkbox" />
-          <label for=""> ♀ ✞ ♆ Hardwired </label>
-          <input
-            type="number"
-            value="5"
-            disabled="true"
-            class="macho nun bimbo"
-          />
-        </div>
-
-        <div class="disadvantage">
-          <input type="checkbox" />
-          <label for=""> ♀ ✞ ♆ Heroically dead </label>
-          <input
-            type="number"
-            value="5"
-            disabled="true"
-            class="macho nun bimbo"
-          />
-        </div>
-
-        <div class="disadvantage">
-          <input type="checkbox" />
-          <label for=""> ♀ ✞ ♆ Mutant disadvatange </label>
-          <input
-            type="number"
-            value="10"
-            disabled="true"
-            class="macho nun bimbo"
-          />
-        </div>
-
-        <div class="disadvantage">
-          <input type="checkbox" />
-          <label for=""> ♀ ✞ ♆ Non-intellect </label>
-          <input
-            type="number"
-            value="20"
-            disabled="true"
-            class="macho nun bimbo"
-          />
-        </div>
-
-        <div class="disadvantage">
-          <input type="checkbox" />
-          <label for=""> ♀ ✞ ♆ Outlaw </label>
-          <input
-            type="number"
-            value="10"
-            disabled="true"
-            class="macho nun bimbo"
-          />
-        </div>
-
-        <div class="disadvantage">
-          <input type="checkbox" />
-          <label for=""> ♀ ✞ ♆ Personal weakness </label>
-          <input
-            type="number"
-            value="10"
-            disabled="true"
-            class="macho nun bimbo"
-          />
-        </div>
-
-        <div class="disadvantage">
-          <input type="checkbox" />
-          <label for=""> ♀ Sadistic </label>
-          <input type="number" value="5" disabled="true" class="macho" />
-        </div>
-
-        <div class="disadvantage">
-          <input type="checkbox" />
-          <label for=""> ♀ ✞ ♆ Secret love </label>
-          <input
-            type="number"
-            value="10"
-            disabled="true"
-            class="macho nun bimbo"
-          />
-        </div>
-
-        <div class="disadvantage">
-          <input type="checkbox" />
-          <label for=""> ♆ Squeamish</label>
-          <input type="number" value="5" disabled="true" class="bimbo" />
-        </div>
-
-        <div class="disadvantage">
-          <input type="checkbox" />
-          <label for=""> ♀ ♆ Status-conscious </label>
-          <input type="number" value="5" disabled="true" class="macho bimbo" />
-        </div>
-
-        <div class="disadvantage">
-          <input type="checkbox" />
-          <label for=""> ♀ ✞ ♆ Topheavy </label>
-          <input
-            type="number"
-            value="5"
-            disabled="true"
-            class="macho nun bimbo"
-          />
-        </div>
-
-        <div class="disadvantage">
-          <input type="checkbox" />
-          <label for=""> ♆ Vengeful </label>
-          <input type="number" value="5" disabled="true" class="bimbo" />
-        </div>
-
-        <div class="disadvantage">
-          <input type="checkbox" />
-          <label for="">✞ Vow of Silence</label>
-          <input type="number" value="10" disabled="true" class="nun" />
-        </div>
-
-        <div class="disadvantage">
-          <input type="checkbox" />
-          <label for=""> ✞ Vow of Violence </label>
-          <input type="number" value="10" disabled="true" class="nuns" />
-        </div>
-        <div class="disadvantage">
-          <label for="total">Total:</label>
-          <input type="number" class="total" />
-        </div>
-      </fieldset>
-    </div>
-
-    <div class="equipment-selector">
-      <fieldset>
-        <legend>Choose your equipment</legend>
-        <label for="class">Weapons:</label>
-        <select id="weapons">
-          <option selected>Gun</option>
-          <option>Chainsaw</option>
-          <option>Whips</option>
-          <option>Guns</option>
-        </select>
-
-        <label for="class">Armor:</label>
-        <select id="weapons">
-          <option selected>Chaimail bikini</option>
-          <option>Clothes</option>
-          <option>Catsuit</option>
-          <option>Nothing</option>
-        </select>
-      </fieldset>
-    </div>
-
-    <script src="js/script.js"></script>
-  </body>
 </html>
